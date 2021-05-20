@@ -15,7 +15,7 @@ public class Groups {
 		super();
 	}
 
-	public void addStudent(Student student) throws MyExeption {
+	public void addStudent(Student student) {
 
 		for (int i = 0;; i++) {
 			try {
