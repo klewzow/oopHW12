@@ -16,24 +16,28 @@ public class Groups {
 	}
 
 	public void addStudent(Student student) {
-
 		for (int i = 0;; i++) {
 			try {
 				if (i >= studentsInGroup.length) {
 					throw new MyExeption();
 				}
-				if (this.studentsInGroup[i] == null) {
-
-					studentsInGroup[i] = student;
+				if (studentsInGroup[i] == null) {
+					addS(student, i);
 					break;
 				}
 
 			} catch (MyExeption e) {
-
 				break;
 			}
 
 		}
+
+	}
+
+	private void addS(Student student, int i) throws MyExeption {
+
+		studentsInGroup[i] = student;
+
 	}
 
 	public void delStudent(Student student) {
@@ -51,25 +55,22 @@ public class Groups {
 		}
 	}
 
-	public String searchStodentToSurename(String surename) {
-		StringBuffer sb = new StringBuffer();
+	public Student searchStodentToSurename(String surename) {
+
 		for (int i = 0; i < studentsInGroup.length; i++) {
 			try {
 
 				if ((this.studentsInGroup[i].getSurename()).equals(surename)) {
-					sb.append(studentsInGroup[i].toString());
-					break;
+
+					return this.studentsInGroup[i];
 				}
 			} catch (NullPointerException e) {
 
 				continue;
 			}
 		}
-		if (sb.toString().equals("")) {
-			sb.append("Student not found.");
-		}
 
-		return sb.toString();
+		return null;
 	}
 
 	public Student[] getStudentsInGroup() {

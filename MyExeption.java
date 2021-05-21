@@ -7,5 +7,7 @@ public class MyExeption extends Exception {
 	public MyExeption() {
 		System.err.println("The group is full!!");
 	}
+	
+ 
 
 }
